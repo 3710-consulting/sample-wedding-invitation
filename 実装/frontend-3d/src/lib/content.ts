@@ -16,9 +16,9 @@ export const CONTENT = {
 
   groom: {
     label: "GROOM",
-    name: "山田 陽翔",
-    romaji: "Yamada Haruto",
-    heroName: "Haruto",
+    name: "山田 太郎",
+    romaji: "Yamada Taro",
+    heroName: "Taro",
     birthday: "1996年5月3日",
     birthplace: "東京都出身",
     message: "皆様への感謝を忘れず\n二人で温かい家庭を築いていきます",
@@ -27,9 +27,9 @@ export const CONTENT = {
 
   bride: {
     label: "BRIDE",
-    name: "佐藤 美咲",
-    romaji: "Sato Misaki",
-    heroName: "Misaki",
+    name: "山田 花子",
+    romaji: "Yamada Hanako",
+    heroName: "Hanako",
     birthday: "1997年9月21日",
     birthplace: "神奈川県出身",
     message: "これまで支えてくださった皆様に\n心からの感謝をお伝えできる一日にしたいです",
