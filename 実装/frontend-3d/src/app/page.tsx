@@ -1,3 +1,4 @@
+import { LoadingScreen } from "@/components/ui/LoadingScreen";
 import { BottomNav } from "@/components/ui/BottomNav";
 import { Hero } from "@/components/sections/Hero";
 import { Countdown } from "@/components/sections/Countdown";
@@ -13,6 +14,7 @@ import { Footer } from "@/components/sections/Footer";
 export default function Home() {
   return (
     <>
+      <LoadingScreen />
       <Hero />
       <Countdown />
       <Greeting />

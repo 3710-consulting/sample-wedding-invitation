@@ -108,3 +108,18 @@ export const CONTENT = {
     { label: "ギャラリー写真 6" },
   ],
 } as const;
+
+// Hero（スクロール連動の連番フレーム演出）用。
+// public/frames/hero-sample/ は Hero_sample.mp4（1080x1920, 4秒, 30fps）から
+// 書き出したJPG連番（frame_0001.jpg〜frame_0120.jpg）。
+export const HERO_FRAME_COUNT = 120;
+export const HERO_FRAME_PATH = (i: number) =>
+  `/frames/hero-sample/frame_${String(i).padStart(4, "0")}.jpg`;
+
+// LoadingScreen（オープニング演出）用。
+// public/frames/taro-hanako/ は taro&hanako.mp4（1920x1080, 4秒, 30fps）から
+// 書き出したJPG連番（frame_0001.jpg〜frame_0120.jpg）。
+export const LOADING_FRAME_COUNT = 120;
+export const LOADING_FPS = 30;
+export const LOADING_FRAME_PATH = (i: number) =>
+  `/frames/taro-hanako/frame_${String(i).padStart(4, "0")}.jpg`;
