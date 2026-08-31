@@ -194,18 +194,17 @@ body.no-scroll {
 
 /* Frame-sequence hero（変更禁止: ヒーロー演出のスクロール距離定義） */
 .hero-scroll-stage {
-  height: 260vh;
+  height: 400vh;
 }
 
 @media (max-width: 1024px) {
   .hero-scroll-stage {
-    height: 220vh;
+    height: 350vh;
   }
 }
 
 @media (max-width: 768px) {
   .hero-scroll-stage {
-    /* スクロール距離を短くし、120枚のフレームの密度を上げてカクつきを軽減 */
-    height: 120vh;
+    height: 300vh;
   }
 }
