@@ -167,7 +167,7 @@ export function LoadingScreen() {
       className={`fixed inset-0 z-[100] flex items-center justify-center transition-opacity duration-700 ease-out ${
         fadingOut ? "pointer-events-none opacity-0" : "opacity-100"
       }`}
-      style={{ background: "var(--dark)" }}
+      style={{ background: "#000000" }}
       aria-hidden={fadingOut}
     >
       <canvas
