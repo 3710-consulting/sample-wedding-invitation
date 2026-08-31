@@ -101,6 +101,9 @@ export const CONTENT = {
     { src: "/photos/gallery/gallery-1.jpg", alt: "ギャラリー写真 1" },
     { src: "/photos/gallery/gallery-2.jpg", alt: "ギャラリー写真 2" },
     { src: "/photos/gallery/gallery-3.jpg", alt: "ギャラリー写真 3" },
+    { src: "/photos/gallery/gallery-4.jpg", alt: "ギャラリー写真 4" },
+    { src: "/photos/gallery/gallery-5.jpg", alt: "ギャラリー写真 5" },
+    { src: "/photos/gallery/gallery-6.jpg", alt: "ギャラリー写真 6" },
   ],
 } as const;
 
