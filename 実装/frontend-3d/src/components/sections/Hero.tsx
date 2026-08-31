@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { CONTENT, HERO_FRAME_COUNT, HERO_FRAME_PATH } from "@/lib/content";
+import { CONTENT, HERO_FRAME_COUNT, HERO_FRAME_PATH, LOADING_LAST_FRAME_SRC } from "@/lib/content";
 
 // スクロールに連動して連番フレーム（public/frames/hero-sample/）を再生する
 // 演出。実装は結婚式_招待状/実装/frontend-3d の Hero.tsx を踏襲している。
@@ -165,9 +165,12 @@ export function Hero() {
           <span className="font-en text-[10px] tracking-[0.35em] sm:text-xs sm:tracking-[0.5em]">
             WEDDING INVITATION
           </span>
-          <span className="font-en text-4xl tracking-[0.05em] sm:text-5xl md:text-6xl">
-            {CONTENT.groom.heroName} &amp; {CONTENT.bride.heroName}
-          </span>
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src={LOADING_LAST_FRAME_SRC}
+            alt={`${CONTENT.groom.heroName} & ${CONTENT.bride.heroName}`}
+            className="w-64 sm:w-72 md:w-80"
+          />
           <span className="font-en text-sm tracking-[0.3em] md:text-base">
             {CONTENT.weddingDateLabel}
           </span>

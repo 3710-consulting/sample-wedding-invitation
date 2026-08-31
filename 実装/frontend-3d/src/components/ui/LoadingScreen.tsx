@@ -103,8 +103,11 @@ export function LoadingScreen() {
     function drawFrame(img: HTMLImageElement) {
       const cw = canvas!.width;
       const ch = canvas!.height;
-      // object-fit: cover と同じ中央クロップ。
-      const scale = Math.max(cw / img.naturalWidth, ch / img.naturalHeight);
+      // 画面いっぱいには広げず、タイトルカードとして中央に収まる
+      // サイズ（幅・高さとも最大70%）に縮小して表示する。
+      const maxW = cw * 0.7;
+      const maxH = ch * 0.7;
+      const scale = Math.min(maxW / img.naturalWidth, maxH / img.naturalHeight);
       const dw = img.naturalWidth * scale;
       const dh = img.naturalHeight * scale;
       ctx!.clearRect(0, 0, cw, ch);
