@@ -194,17 +194,17 @@ body.no-scroll {
 
 /* Frame-sequence hero（変更禁止: ヒーロー演出のスクロール距離定義） */
 .hero-scroll-stage {
-  height: 400vh;
+  height: 500vh;
 }
 
 @media (max-width: 1024px) {
   .hero-scroll-stage {
-    height: 350vh;
+    height: 450vh;
   }
 }
 
 @media (max-width: 768px) {
   .hero-scroll-stage {
-    height: 300vh;
+    height: 400vh;
   }
 }
