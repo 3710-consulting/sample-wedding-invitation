@@ -53,7 +53,10 @@ export function Hero() {
     if (!ctx) return;
 
     const resizeCanvas = () => {
-      const dpr = window.devicePixelRatio || 1;
+      // devicePixelRatioをそのまま使うとProMotion端末等でcanvasの実解像度が
+      // 過大になり、drawImageのコストが跳ね上がってスクロール中にカクつく
+      // 原因になるため上限を設ける。
+      const dpr = Math.min(window.devicePixelRatio || 1, 2);
       canvas.width = window.innerWidth * dpr;
       canvas.height = window.innerHeight * dpr;
       canvas.style.width = window.innerWidth + "px";
@@ -103,10 +106,12 @@ export function Hero() {
         HERO_FRAME_COUNT - 1,
         Math.floor(progress * HERO_FRAME_COUNT)
       );
-      if (frameIndex !== currentFrameRef.current || rect.top === 0) {
+      // フレームが変わっていない微小スクロールでは再描画しない
+      // （同じ画像への無駄なdrawImageを減らしてスクロール中の負荷を下げる）。
+      if (frameIndex !== currentFrameRef.current) {
         currentFrameRef.current = frameIndex;
+        drawFrame(frameIndex);
       }
-      drawFrame(frameIndex);
 
       if (heroTextRef.current) {
         // フェードでは消さず、スクロールに合わせてそのまま上へ抜けていく。
