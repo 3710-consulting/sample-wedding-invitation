@@ -205,6 +205,7 @@ body.no-scroll {
 
 @media (max-width: 768px) {
   .hero-scroll-stage {
-    height: 300vh;
+    /* スクロール距離を短くし、120枚のフレームの密度を上げてカクつきを軽減 */
+    height: 180vh;
   }
 }
