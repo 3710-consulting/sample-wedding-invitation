@@ -26,13 +26,19 @@ export function LoadingScreen() {
   const [removed, setRemoved] = useState(false);
   const [progress, setProgress] = useState(0);
 
-  // 演出中はスクロールを止める。
+  // 演出中はスクロールを止める。removed後もこのコンポーネント自体は
+  // マウントされたままnullを返す（=アンマウントされない）ため、cleanup関数の
+  // 発火に頼らず、removedへの遷移時に明示的に解除する（頼るとスマートフォンで
+  // 演出終了後もスクロールがロックされたままになる）。
   useEffect(() => {
     document.body.style.overflow = "hidden";
-    return () => {
-      document.body.style.overflow = "";
-    };
   }, []);
+
+  useEffect(() => {
+    if (removed) {
+      document.body.style.overflow = "";
+    }
+  }, [removed]);
 
   // 自分の120枚 ＋ Heroの120枚を並行プリロードする。
   useEffect(() => {
