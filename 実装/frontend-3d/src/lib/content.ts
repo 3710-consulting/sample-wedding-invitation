@@ -124,7 +124,7 @@ export const LOADING_FPS = 30;
 export const LOADING_FRAME_PATH = (i: number) =>
   `/frames/taro-hanako/frame_${String(i).padStart(4, "0")}.jpg`;
 
-// taro&hanako.mp4の最終フレーム（手書き風タイトルカード「Taro & Hanako」）。
-// Heroの新郎新婦名テキストの代わりにこの画像を使い、LoadingScreenとHeroで
-// 同じタイトルカードが続けて見えるようにする。
-export const LOADING_LAST_FRAME_SRC = LOADING_FRAME_PATH(LOADING_FRAME_COUNT);
+// taro&hanako.mp4の最終フレーム（手書き風タイトルカード「Taro & Hanako」）を
+// テキスト部分だけ切り抜き、背景を透過させたもの（828x788）。
+// Heroの新郎新婦名テキストの代わりにこの画像を使う。
+export const LOADING_TITLE_CUTOUT_SRC = "/frames/taro-hanako/title-cutout.png";
