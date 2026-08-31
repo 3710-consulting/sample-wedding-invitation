@@ -8,7 +8,6 @@ import { Gallery } from "@/components/sections/Gallery";
 import { Schedule } from "@/components/sections/Schedule";
 import { Venue } from "@/components/sections/Venue";
 import { RSVP } from "@/components/sections/RSVP";
-import { Contact } from "@/components/sections/Contact";
 import { Footer } from "@/components/sections/Footer";
 
 export default function Home() {
@@ -23,7 +22,6 @@ export default function Home() {
       <Schedule />
       <Venue />
       <RSVP />
-      <Contact />
       <Footer />
       <BottomNav />
     </>
