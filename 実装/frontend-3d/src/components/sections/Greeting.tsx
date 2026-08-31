@@ -1,6 +1,6 @@
+import Image from "next/image";
 import { AnimatedSection, AnimatedItem } from "@/components/ui/AnimatedSection";
 import { SectionTitle } from "@/components/ui/SectionTitle";
-import { PlaceholderPhoto } from "@/components/ui/PlaceholderPhoto";
 import { CONTENT } from "@/lib/content";
 
 export function Greeting() {
@@ -12,10 +12,15 @@ export function Greeting() {
           jp="ご挨拶"
           image={{ src: "/section-titles/greeting.png", width: 869, height: 140, alt: "GREETING" }}
         />
-        <PlaceholderPhoto
-          label={CONTENT.greetingPhotoLabel}
-          className="mb-11 aspect-[3/2] w-full rounded-[4px]"
-        />
+        <div className="relative mb-11 aspect-[3/2] w-full overflow-hidden rounded-[4px]">
+          <Image
+            src={CONTENT.greetingPhoto}
+            alt="新郎新婦"
+            fill
+            sizes="(max-width: 640px) 100vw, 640px"
+            className="object-cover"
+          />
+        </div>
         <AnimatedSection className="flex flex-col items-center gap-6 text-center">
           {CONTENT.greeting.map((paragraph, pi) => (
             <div key={pi} className="flex flex-col items-center gap-1">

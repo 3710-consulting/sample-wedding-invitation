@@ -1,6 +1,6 @@
+import Image from "next/image";
 import { AnimatedSection, AnimatedItem } from "@/components/ui/AnimatedSection";
 import { SectionTitle } from "@/components/ui/SectionTitle";
-import { PlaceholderPhoto } from "@/components/ui/PlaceholderPhoto";
 import { CONTENT } from "@/lib/content";
 
 export function Host() {
@@ -22,11 +22,15 @@ export function Host() {
               style={{ background: "#4c4c4c" }}
             >
               <div className="flex gap-4">
-                <PlaceholderPhoto
-                  dark
-                  label={person.photoLabel}
-                  className="h-28 w-24 shrink-0 rounded-[4px]"
-                />
+                <div className="relative h-28 w-24 shrink-0 overflow-hidden rounded-[4px]">
+                  <Image
+                    src={person.photo}
+                    alt={person.name}
+                    fill
+                    sizes="96px"
+                    className="object-cover"
+                  />
+                </div>
                 <div className="flex min-w-0 flex-col justify-center text-white">
                   <p className="font-en text-xs tracking-[0.25em]">{person.label}</p>
                   <h3 className="mt-1 text-lg">{person.name}</h3>

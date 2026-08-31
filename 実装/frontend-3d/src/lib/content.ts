@@ -3,9 +3,7 @@
 //
 // これは発信用のサンプルサイト（架空のカップル・架空の会場）。
 // 実案件に流用する際は、この内容全体を案件ごとの実データに置き換える。
-// 写真は本番の実写素材が届くまでの間、PlaceholderPhoto（プレースホルダー枠）
-// で表示している。実写に差し替える際はコンポーネント側（Host/Greeting/Gallery）
-// をnext/imageのImageに戻し、ここに実ファイルパスを追加すればよい。
+// 写真はロイヤリティフリー素材を public/photos/ 配下に配置し、next/imageで表示している。
 
 export const CONTENT = {
   weddingDateTime: "2027-04-18T11:00:00+09:00",
@@ -22,7 +20,7 @@ export const CONTENT = {
     birthday: "1996年5月3日",
     birthplace: "東京都出身",
     message: "皆様への感謝を忘れず\n二人で温かい家庭を築いていきます",
-    photoLabel: "新郎写真",
+    photo: "/photos/host/groom.jpg",
   },
 
   bride: {
@@ -33,7 +31,7 @@ export const CONTENT = {
     birthday: "1997年9月21日",
     birthplace: "神奈川県出身",
     message: "これまで支えてくださった皆様に\n心からの感謝をお伝えできる一日にしたいです",
-    photoLabel: "新婦写真",
+    photo: "/photos/host/bride.jpg",
   },
 
   // 段落ごとに配列を分け、段落間だけ広めの余白を空ける。
@@ -48,7 +46,7 @@ export const CONTENT = {
     ["挙式後はささやかではございますが", "感謝の気持ちを込めて 小宴を催したく存じます"],
     ["ご多用中誠に恐縮ではございますが", "ぜひご出席をお願いしたく ご案内申し上げます"],
   ],
-  greetingPhotoLabel: "挨拶写真",
+  greetingPhoto: "/photos/greeting/greeting.jpg",
 
   // 挙式当日のスケジュール（受付〜お見送りまで）。
   schedule: [
@@ -98,14 +96,11 @@ export const CONTENT = {
   // 成功表示のみ）になる。本サンプルではバックエンド連携なしのため常に空。
   gasWebAppUrl: "",
 
-  // ギャラリー写真（プレースホルダー）
+  // ギャラリー写真
   photos: [
-    { label: "ギャラリー写真 1" },
-    { label: "ギャラリー写真 2" },
-    { label: "ギャラリー写真 3" },
-    { label: "ギャラリー写真 4" },
-    { label: "ギャラリー写真 5" },
-    { label: "ギャラリー写真 6" },
+    { src: "/photos/gallery/gallery-1.jpg", alt: "ギャラリー写真 1" },
+    { src: "/photos/gallery/gallery-2.jpg", alt: "ギャラリー写真 2" },
+    { src: "/photos/gallery/gallery-3.jpg", alt: "ギャラリー写真 3" },
   ],
 } as const;
 

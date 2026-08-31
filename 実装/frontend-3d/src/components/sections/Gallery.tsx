@@ -2,9 +2,9 @@
 
 import { useCallback, useEffect, useRef, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
+import Image from "next/image";
 import { AnimatedItem } from "@/components/ui/AnimatedSection";
 import { SectionTitle } from "@/components/ui/SectionTitle";
-import { PlaceholderPhoto } from "@/components/ui/PlaceholderPhoto";
 import { CONTENT } from "@/lib/content";
 
 // トラックを2セット連結し、ちょうど半分スクロールした時点で0へ巻き戻す
@@ -201,14 +201,21 @@ export function Gallery() {
           <div className="flex w-max gap-4 md:gap-6">
             {TRACK_PHOTOS.map((photo, i) => (
               <motion.div
-                key={`${photo.label}-${i}`}
+                key={`${photo.src}-${i}`}
                 whileHover={{ scale: 1.02, y: -3 }}
                 transition={{ duration: 0.18, ease: "easeOut" }}
                 onClick={() => openLightbox(i)}
                 data-photo-index={i % PHOTO_COUNT}
                 className="relative aspect-[3/4] w-[63vw] max-w-[330px] shrink-0 cursor-zoom-in overflow-hidden rounded-[4px] border border-white/10"
               >
-                <PlaceholderPhoto dark label={photo.label} className="absolute inset-0 h-full w-full" />
+                <Image
+                  src={photo.src}
+                  alt={photo.alt}
+                  fill
+                  draggable={false}
+                  sizes="(max-width: 768px) 63vw, 330px"
+                  className="object-cover"
+                />
               </motion.div>
             ))}
           </div>
@@ -271,7 +278,14 @@ export function Gallery() {
               className="relative h-full w-full max-w-3xl"
               onClick={(e) => e.stopPropagation()}
             >
-              <PlaceholderPhoto dark label={activePhoto.label} className="h-full w-full" />
+              <Image
+                src={activePhoto.src}
+                alt={activePhoto.alt}
+                fill
+                sizes="100vw"
+                className="object-contain"
+                priority
+              />
             </motion.div>
           </motion.div>
         )}
